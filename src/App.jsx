@@ -21,8 +21,11 @@ import Leaderboard from './pages/Leaderboard';
 import NotFound from './pages/NotFound';
 import Auth from './pages/Auth';
 import { initDb } from './data/db';
+import { dropStaleSession, syncFromApi } from './data/api';
 
 initDb(); // creates the local database on first run
+dropStaleSession();
+syncFromApi().catch((err) => console.warn('MOVE API:', err.message)); // venues + games come from the server
 
 export default function App() {
   const alreadyInRouter = useInRouterContext(); // true if main.jsx already wraps <BrowserRouter>

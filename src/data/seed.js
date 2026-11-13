@@ -1,4 +1,6 @@
-// Starter data for the local database. Edit freely, then bump DB_VERSION in db.js to re-seed.
+// Starter data for the local database. Venues and games are NOT seeded here: they come from
+// the MOVE backend (see api.js).
+// Edit freely, then bump DB_VERSION in db.js to re-seed.
 export const SPORTS = [
   { key: 'pickleball', label: 'Pickleball', emoji: '🏓' },
   { key: 'basketball', label: 'Basketball', emoji: '🏀' },
@@ -14,19 +16,8 @@ const day = (offset) => {
 };
 
 export const seed = {
-  venues: [
-    { id: 'minglanilla', bookingUrl: 'https://www.google.com/search?q=Minglanilla+Pickleball+Club+book+court', name: 'Minglanilla Pickleball Club', area: 'Ward 2, Poblacion, Minglanilla', sports: ['pickleball', 'badminton'], price: 300, distanceKm: 8.2, courts: 7, amenities: ['Lighting', 'Indoor AC', 'Pro shop', 'Paddle rental'], lat: 10.2447, lng: 123.7961 },
-    { id: 'lahug', bookingUrl: 'https://www.google.com/search?q=Metro+Sports+Center+Lahug+book+court', name: 'Metro Sports Center Lahug', area: 'Salinas Drive, Lahug, Cebu City', sports: ['badminton', 'tennis'], price: 350, distanceKm: 3.4, courts: 6, amenities: ['Lighting', 'Parking', 'Showers'], lat: 10.3278, lng: 123.9066 },
-    { id: 'mandaue', bookingUrl: 'https://www.google.com/search?q=North+Reclamation+Badminton+Hoops+book+court', name: 'North Reclamation Badminton & Hoops', area: 'Subangdaku, Mandaue', sports: ['badminton', 'basketball'], price: 280, distanceKm: 5.1, courts: 4, amenities: ['Lighting', 'Parking'], lat: 10.3436, lng: 123.9318 },
-    { id: 'mactan', bookingUrl: 'https://www.google.com/search?q=Mactan+Seaside+Padel+Tennis+book+court', name: 'Mactan Seaside Padel & Tennis', area: 'Punta Engaño, Lapu-Lapu', sports: ['padel', 'tennis'], price: 450, distanceKm: 11.8, courts: 3, amenities: ['Glass courts', 'Lighting', 'Cafe'], lat: 10.319, lng: 124.005 },
-  ],
-  matches: [
-    { id: 'm1', title: 'Friday night rally', sport: 'pickleball', venueId: 'minglanilla', date: day(1), time: '18:00', level: 'Intermediate', spots: 8, joined: ['Migs', 'Ana', 'Jo'], host: 'Migs' },
-    { id: 'm2', title: 'Beginner pickleball mixer', sport: 'pickleball', venueId: 'minglanilla', date: day(2), time: '16:00', level: 'Beginner', spots: 10, joined: ['Ana'], host: 'Ana' },
-    { id: 'm3', title: 'Doubles badminton', sport: 'badminton', venueId: 'lahug', date: day(2), time: '19:00', level: 'Intermediate', spots: 4, joined: ['Rey', 'Kim', 'Dan'], host: 'Rey' },
-    { id: 'm4', title: 'Half-court 3v3', sport: 'basketball', venueId: 'mandaue', date: day(3), time: '17:30', level: 'Any', spots: 6, joined: ['Paolo', 'Jun'], host: 'Paolo' },
-    { id: 'm5', title: 'Sunrise padel', sport: 'padel', venueId: 'mactan', date: day(4), time: '07:00', level: 'Advanced', spots: 4, joined: ['Lia'], host: 'Lia' },
-  ],
+  venues: [],
+  matches: [],
   players: [
     { id: 'p1', name: 'Migs Alcantara', sport: 'pickleball', level: 'Intermediate', area: 'Minglanilla', invited: false },
     { id: 'p2', name: 'Ana Villaluz', sport: 'pickleball', level: 'Beginner', area: 'Talisay', invited: false },

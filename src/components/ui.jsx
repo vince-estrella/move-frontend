@@ -134,7 +134,7 @@ export function VenueCard({ venue, selected, onSelect }) {
           <p className="truncate text-sm text-[#565e74]">{venue.area}</p>
           <div className="mt-0.5"><RatingBadge venueId={venue.id} /></div>
           <p className="mt-1 text-sm">
-            <span className="inline-flex items-center gap-1.5 align-middle">{venue.sports.map((s) => <SportIcon key={s} sport={s} size={18} />)}</span> · {venue.courts} courts · {fmtDist(venue.distanceKm, unit)}
+            <span className="inline-flex items-center gap-1.5 align-middle">{venue.sports.map((s) => <SportIcon key={s} sport={s} size={18} />)}</span> · {venue.courts ? `${venue.courts} courts · ` : ''}{fmtDist(venue.distanceKm, unit)}
           </p>
         </div>
         <div className="shrink-0 text-right">

@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { seed, defaultProfile } from './seed';
 
 const PREFIX = 'move_db_';
-const DB_VERSION = 3; // bump this to re-seed after you change seed.js
+const DB_VERSION = 4; // bump this to re-seed after you change seed.js
 const CHANGE = 'move-db-change';
 
 const read = (name, fallback = []) => {
@@ -65,11 +65,12 @@ export function initDb() {
 }
 
 export function resetDb() {
-  const keep = [PREFIX + 'users', PREFIX + 'session', PREFIX + 'requests'];
+  const keep = [PREFIX + 'users', PREFIX + 'session', PREFIX + 'token', PREFIX + 'requests'];
   Object.keys(localStorage)
     .filter((k) => k.startsWith(PREFIX) && !keep.includes(k))
     .forEach((k) => localStorage.removeItem(k));
   initDb();
+  import('./api').then((m) => m.syncFromApi()).catch(() => {}); // venues + games live on the server
 }
 
 // ---- session + current user (accounts live in the 'users' table) ----

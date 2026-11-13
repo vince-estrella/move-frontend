@@ -31,7 +31,7 @@ export default function VenueDetails() {
           <p className="text-2xl font-extrabold text-[#006948]">{peso(venue.price)}<span className="text-xs font-semibold text-[#565e74]"> / court / hr</span></p>
         </div>
         <div className="mt-2"><RatingBadge venueId={venue.id} /></div>
-        <p className="mt-2 text-sm text-[#565e74]">{venue.courts} courts · {fmtDist(venue.distanceKm)} from you</p>
+        <p className="mt-2 text-sm text-[#565e74]">{venue.courts ? `${venue.courts} courts · ` : ''}{fmtDist(venue.distanceKm)} from you</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {venue.amenities.map((a) => <span key={a} className="rounded-full bg-[#dce9ff] px-3 py-1 text-xs font-semibold">{a}</span>)}
         </div>
